@@ -31,6 +31,10 @@ export class HomeComponent implements OnInit {
     });
   }
 
+  openGameDetails(id: any) {
+    console.log('clicked openGameDetails');
+  }
+
   imgError(image: any) {
     image.style.display = 'none';
   }
