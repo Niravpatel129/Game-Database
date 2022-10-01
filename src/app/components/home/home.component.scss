@@ -4,14 +4,21 @@
   padding-left: 20px;
 }
 
+.games {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
 .game {
+  margin-bottom: 20px;
   display: flex;
   flex-direction: column;
   width: 350px;
   background-color: rgba(40, 39, 39, 0.089);
+  transition: all 0.1s ease;
 
   &:hover {
-    transition: all 0.3s ease;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
   }
 
@@ -26,7 +33,6 @@
   .game-description {
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
     padding: 20px;
     height: 150px;
 
@@ -39,7 +45,12 @@
   }
 
   .game-platforms {
+    display: flex;
+    gap: 10px;
+
     img {
+      filter: invert(50%);
+
       width: 30px;
       height: 30px;
     }

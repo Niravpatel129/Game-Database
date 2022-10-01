@@ -14,23 +14,30 @@
 </div>
 
 <div class="games">
-  <div class="game">
-    <div class="game-thumb-container">
-      <img
-        src="https://res.cloudinary.com/daily-now/image/upload/f_auto,q_auto/v1/posts/e043279352b87dab0f6e9a0fe06b161e"
-        alt=""
-      />
-    </div>
-
-    <div class="game-description">
-      <p class="game-name">Game Name</p>
-      <div class="game-platforms">
+  <ng-container *ngFor="let game of games">
+    <div class="game">
+      <div class="game-thumb-container">
         <img
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Steam_icon_logo.svg/2048px-Steam_icon_logo.svg.png"
-          alt="slug"
-          class="game-platform"
+          *ngIf="game.background_image"
+          [src]="game.background_image"
+          alt=""
         />
+        <p *ngIf="!game.background_image">No Image</p>
+      </div>
+
+      <div class="game-description">
+        <p class="game-name">{{ game.name }}</p>
+        <div class="game-platforms">
+          <img
+            #product
+            *ngFor="let platform of game.platforms"
+            src="assets/images/platforms/{{ platform.platform.slug }}.svg"
+            alt="slug"
+            class="game-platform"
+            (error)="imgError(product)"
+          />
+        </div>
       </div>
     </div>
-  </div>
+  </ng-container>
 </div>
