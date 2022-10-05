@@ -11,6 +11,6 @@ export class GameTabsComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
-    console.log('🚀 game', this.game);
+    console.log('🚀 game', this.game.parent_platforms?.length);
   }
 }
